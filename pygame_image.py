@@ -29,8 +29,11 @@ def main():
             kk_rct.move_ip((0,1))
         if key_lst[pg.K_LEFT]:
             kk_rct.move_ip((-1,0))
+        else: #演習1-1何も押していないと左にいく
+            kk_rct.move_ip((-1,0))
         if key_lst[pg.K_RIGHT]:
             kk_rct.move_ip((1,0))
+        
         
         x = tmr % 3200 #練習9ループさせる計算
         screen.blit(bg_img, [-x, 0]) #練習5背景動くように
