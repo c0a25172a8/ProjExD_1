@@ -23,18 +23,33 @@ def main():
 
         key_lst = pg.key.get_pressed() #練習10-3キーの押してる情報の取得
         #print(key_lst)
-        if key_lst[pg.K_UP]: #練習10-4こうかとん移動
-            kk_rct.move_ip((0,-1))
+
+        #if key_lst[pg.K_UP]: #練習10-4こうかとん移動
+            #kk_rct.move_ip((0,-1))
+        #if key_lst[pg.K_DOWN]:
+            #kk_rct.move_ip((0,1))
+        #if key_lst[pg.K_LEFT]:
+            #kk_rct.move_ip((-1,0))
+        #else: #演習1-1何も押していないと左にいく
+            #kk_rct.move_ip((-1,0))
+        #if key_lst[pg.K_RIGHT]:
+            #kk_rct.move_ip((2,0))#演習1-2右押すと右
+
+        n = 0
+        m = 0
+        
+        if key_lst[pg.K_UP]:
+            m=-1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,1))
+            m=+1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1,0))
-        else: #演習1-1何も押していないと左にいく
-            kk_rct.move_ip((-1,0))
-        if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((2,0))#演習1-2右押すと右
-        
-        
+            n=-1
+        else:
+            n=-1
+        if key_lst[pg.K_RIGHT]: 
+            n=+1
+        kk_rct.move_ip((n,m))
+
         x = tmr % 3200 #練習9ループさせる計算
         screen.blit(bg_img, [-x, 0]) #練習5背景動くように
         screen.blit(bg_img2, [-x+1600, 0]) #練習7背景残像の2枚目
